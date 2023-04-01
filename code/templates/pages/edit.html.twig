@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block edit %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Edit Page</h1>
+                <h2 class="fw-light">for</h2>
+                <h2 class="fw-light">{{ article.title }}</h2>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="card shadow-sm">
+                    <img src="{{ article.image }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                
+                        <p class="card-text">
+                            {% set cutoff = 70 %}
+                            {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text  }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="container p-5 border-1 border-dark rounded">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Edit Title</label>
+                            <input type="text" name="title" class="form-control" placeholder="Enter new title">
+                          </div>
+                        <div class="form-group">
+                            <label for="image">Edit Image</label>
+                            <input type="file" name="image" class="form-control-file">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Edit Text</label>
+                            <textarea class="form-control" name="text" rows="6" placeholder="Enter new text"></textarea>
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                            <a href="{{ path('article_update', {id: article.id}) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            <a href="{{ path('home') }}" type="button" class="btn btn-secondary">Back</a>
+                        </div>
+                        <button type="submit" class="btn btn-warning"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

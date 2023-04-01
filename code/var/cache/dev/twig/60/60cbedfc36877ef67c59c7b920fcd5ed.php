@@ -30,6 +30,7 @@ class __TwigTemplate_6c6d306fe1c39c6b1a1b39de40301c10 extends Template
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'main' => [$this, 'block_main'],
+            'edit' => [$this, 'block_edit'],
             'footer_js' => [$this, 'block_footer_js'],
         ];
     }
@@ -60,11 +61,14 @@ class __TwigTemplate_6c6d306fe1c39c6b1a1b39de40301c10 extends Template
         // line 12
         $this->displayBlock('main', $context, $blocks);
         // line 13
+        echo "    ";
+        $this->displayBlock('edit', $context, $blocks);
+        // line 14
         echo "
     ";
-        // line 14
+        // line 15
         $this->displayBlock('footer_js', $context, $blocks);
-        // line 17
+        // line 18
         echo "    </body>
 </html>
 ";
@@ -113,14 +117,26 @@ class __TwigTemplate_6c6d306fe1c39c6b1a1b39de40301c10 extends Template
 
     }
 
-    // line 14
+    // line 13
+    public function block_edit($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "edit"));
+
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+    }
+
+    // line 15
     public function block_footer_js($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer_js"));
 
-        // line 15
+        // line 16
         echo "        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>
     ";
         
@@ -135,7 +151,7 @@ class __TwigTemplate_6c6d306fe1c39c6b1a1b39de40301c10 extends Template
 
     public function getDebugInfo()
     {
-        return array (  124 => 15,  117 => 14,  105 => 12,  97 => 7,  90 => 6,  77 => 5,  68 => 17,  66 => 14,  63 => 13,  61 => 12,  56 => 9,  54 => 6,  50 => 5,  44 => 1,);
+        return array (  140 => 16,  133 => 15,  121 => 13,  109 => 12,  101 => 7,  94 => 6,  81 => 5,  72 => 18,  70 => 15,  67 => 14,  64 => 13,  62 => 12,  57 => 9,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -152,6 +168,7 @@ class __TwigTemplate_6c6d306fe1c39c6b1a1b39de40301c10 extends Template
     <body>
 
     {% block main %}{% endblock %}
+    {% block edit %}{% endblock %}
 
     {% block footer_js %}
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>
