@@ -23,6 +23,9 @@ class Article
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $updatedAt;
+
     /**
      * @return int|null
      */
@@ -77,5 +80,20 @@ class Article
     public function setImage(?string $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->$updatedAt;
+    }
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = new DateTime();
     }
 }

@@ -28,24 +28,22 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="container p-5 border-1 border-dark rounded">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label for="title">Edit Title</label>
                             <input type="text" name="title" class="form-control" placeholder="Enter new title">
                           </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label for="image">Edit Image</label>
-                            <input type="file" name="image" class="form-control-file">
+                            <input class="form-control" type="file" name="image">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label for="text">Edit Text</label>
                             <textarea class="form-control" name="text" rows="6" placeholder="Enter new text"></textarea>
                         </div>
-                        <div class="btn-group">
+                        <div class="btn-group my-4">
                             <button type="submit" class="btn btn-warning">Edit</button>
-                            <a href="{{ path('article_update', {id: article.id}) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
                             <a href="{{ path('home') }}" type="button" class="btn btn-secondary">Back</a>
                         </div>
-                        <button type="submit" class="btn btn-warning"></button>
                     </form>
                 </div>
             </div>

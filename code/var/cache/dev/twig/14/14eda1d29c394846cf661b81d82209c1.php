@@ -85,7 +85,7 @@ class __TwigTemplate_f503735da36c5a4c8c98c25ed6f7f580 extends Template
                         <p class=\"card-text\">
                             ";
         // line 22
-        $context["cutoff"] = 80;
+        $context["cutoff"] = 70;
         // line 23
         echo "                            ";
         echo twig_escape_filter($this->env, (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23)) > (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })()))) ? ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23), 0, (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })())) . "...")) : (twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23))), "html", null, true);
@@ -95,12 +95,27 @@ class __TwigTemplate_f503735da36c5a4c8c98c25ed6f7f580 extends Template
                 </div>
             </div>
             <div class=\"col-lg-6 col-md-6 col-sm-12\">
-                <div class=\"container p-5\">
+                <div class=\"container p-5 border-1 border-dark rounded\">
                     <form>
-                            <div>
-                                <label for=\"title\">Edit Title</label>
-                                <input type=\"text\" name=\"title\">
-                            </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"title\">Edit Title</label>
+                            <input type=\"text\" name=\"title\" class=\"form-control\" placeholder=\"Enter new title\">
+                          </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"image\">Edit Image</label>
+                            <input class=\"form-control\" type=\"file\" name=\"image\">
+                        </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"text\">Edit Text</label>
+                            <textarea class=\"form-control\" name=\"text\" rows=\"6\" placeholder=\"Enter new text\"></textarea>
+                        </div>
+                        <div class=\"btn-group my-2\">
+                            <button type=\"submit\" class=\"btn btn-warning\">Edit</button>
+                            <a href=\"";
+        // line 45
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" type=\"button\" class=\"btn btn-secondary\">Back</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -125,7 +140,7 @@ class __TwigTemplate_f503735da36c5a4c8c98c25ed6f7f580 extends Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 23,  88 => 22,  82 => 19,  77 => 17,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  116 => 45,  90 => 23,  88 => 22,  82 => 19,  77 => 17,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -151,19 +166,31 @@ class __TwigTemplate_f503735da36c5a4c8c98c25ed6f7f580 extends Template
                         <h5 class=\"card-title\">{{ article.title }}</h5>
                 
                         <p class=\"card-text\">
-                            {% set cutoff = 80 %}
+                            {% set cutoff = 70 %}
                             {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text  }}
                         </p>
                     </div>
                 </div>
             </div>
             <div class=\"col-lg-6 col-md-6 col-sm-12\">
-                <div class=\"container p-5\">
+                <div class=\"container p-5 border-1 border-dark rounded\">
                     <form>
-                            <div>
-                                <label for=\"title\">Edit Title</label>
-                                <input type=\"text\" name=\"title\">
-                            </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"title\">Edit Title</label>
+                            <input type=\"text\" name=\"title\" class=\"form-control\" placeholder=\"Enter new title\">
+                          </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"image\">Edit Image</label>
+                            <input class=\"form-control\" type=\"file\" name=\"image\">
+                        </div>
+                        <div class=\"form-group my-2\">
+                            <label for=\"text\">Edit Text</label>
+                            <textarea class=\"form-control\" name=\"text\" rows=\"6\" placeholder=\"Enter new text\"></textarea>
+                        </div>
+                        <div class=\"btn-group my-2\">
+                            <button type=\"submit\" class=\"btn btn-warning\">Edit</button>
+                            <a href=\"{{ path('home') }}\" type=\"button\" class=\"btn btn-secondary\">Back</a>
+                        </div>
                     </form>
                 </div>
             </div>
