@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ArticleEditFormType;
 use DateTime;
 use App\Service\WordCounter;
 use App\Entity\Article;
@@ -15,12 +16,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ArticleController extends AbstractController
 {
-
-    public function __construct()
-    {
-        $this->req = Request::createFromGlobals();
-    }
-
 
     #[Route('/', name: 'home', methods:'GET')]
     public function list(ArticleRepository $articleRepository, WordCounter $counter): Response
@@ -55,36 +50,30 @@ class ArticleController extends AbstractController
             'counter' => $counter
         ]);
     }
-    #[Route('edit/article/{id}', name: 'article_edit', methods:'GET')]
-    public function edit(ManagerRegistry $doctrine, int $id): Response
+    #[Route('edit/article/{id}', name: 'article_edit')]
+    public function edit(Request $request, ManagerRegistry $doctrine, int $id): Response
     {
         $entityManager = $doctrine->getManager();
+
         $article = $entityManager->getRepository(Article::class)->find($id);
+        
+        $now = new \DateTime();
+        $form = $this->createForm(ArticleEditFormType::class, $article);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $editedArticle = $form->getData();
+            $editedArticle->setUpdatedAt($now);
+            $entityManager->persist($editedArticle);
+            $entityManager->flush();
+            return $this->redirectToRoute('home');
+        }
 
         return $this->render('pages/edit.html.twig', [
-            'article' => $article
+            'article' => $article,
+            'form' => $form->createView()
         ]);
     }
-    #[Route('/article/{id}', name: 'article_update', methods:'POST')]
-    public function update(ManagerRegistry $doctrine, int $id): Response
-    {
-
-        $now = new \DateTime();
-        $entityManager = $doctrine->getManager();
-            
-        $article = $entityManager->getRepository(Article::class)->find($id);
-
-        $article->setTitle($this->req->request->get('title'));
-        $article->setImage($this->req->request->get('image'));
-        $article->setText($this->req->request->get('text'));
-        $article->setUpdatedAt($now);
-            
-            
-        $entityManager->persist($article);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('home');
-    }
+   
 
         
 }
