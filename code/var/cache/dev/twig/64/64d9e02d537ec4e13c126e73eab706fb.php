@@ -64,7 +64,10 @@ class __TwigTemplate_31bffa80a20f3642976a113e9b792e6b extends Template
         // line 8
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 8, $this->source); })()), "title", [], "any", false, false, false, 8), "html", null, true);
         echo "</h1>
-                    <p class=\"text-muted\">X minutes</p>
+                    <p class=\"text-muted\">";
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["counter"]) || array_key_exists("counter", $context) ? $context["counter"] : (function () { throw new RuntimeError('Variable "counter" does not exist.', 9, $this->source); })()), "wordsPerMinuteCalculator", [0 => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 9, $this->source); })()), "text", [], "any", false, false, false, 9)], "method", false, false, false, 9), "html", null, true);
+        echo " minutes.</p>
                 </div>
 
                 <img class=\"img-fluid\" src=\"";
@@ -104,7 +107,7 @@ class __TwigTemplate_31bffa80a20f3642976a113e9b792e6b extends Template
 
     public function getDebugInfo()
     {
-        return array (  83 => 17,  77 => 14,  72 => 12,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  86 => 17,  80 => 14,  75 => 12,  69 => 9,  65 => 8,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -117,7 +120,7 @@ class __TwigTemplate_31bffa80a20f3642976a113e9b792e6b extends Template
             <div class=\"container\">
                 <div class=\"py-5 text-center\">
                     <h1 class=\"fw-bold\">{{ article.title }}</h1>
-                    <p class=\"text-muted\">X minutes</p>
+                    <p class=\"text-muted\">{{ counter.wordsPerMinuteCalculator(article.text) }} minutes.</p>
                 </div>
 
                 <img class=\"img-fluid\" src=\"{{ article.image }}\" alt=\"\">

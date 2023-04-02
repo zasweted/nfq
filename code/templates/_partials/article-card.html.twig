@@ -15,8 +15,8 @@
                 <a href="{{ path('article_edit', {id: article.id}) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
             </div>
 
-            <small class="text-muted">
-                X mins
+            <small class="text-muted">  
+                {{ counter.wordsPerMinuteCalculator(article.text) }} minutes.
             </small>
         </div>
     </div>

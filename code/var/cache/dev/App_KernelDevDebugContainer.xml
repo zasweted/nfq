@@ -172,6 +172,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Service\WordCounter" class="App\Service\WordCounter" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\ArticleController" class="App\Controller\ArticleController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -2423,10 +2424,18 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.i9Y0h6B" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ui9fwdg" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="articleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
+        <argument key="counter" type="service_closure" id="App\Service\WordCounter"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Mix71J4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="counter" type="service_closure" id="App\Service\WordCounter"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
     <service id=".service_locator.GQZbvNR" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -2435,21 +2444,21 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.h.WfU3x" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.yjrMzGK" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ArticleController::edit" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\ArticleController::list" type="service_closure" id=".service_locator.i9Y0h6B"/>
+        <argument key="App\Controller\ArticleController::list" type="service_closure" id=".service_locator.ui9fwdg"/>
         <argument key="App\Controller\ArticleController::update" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\ArticleController::view" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\ArticleController::view" type="service_closure" id=".service_locator.Mix71J4"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Controller\ArticleController:edit" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\ArticleController:list" type="service_closure" id=".service_locator.i9Y0h6B"/>
+        <argument key="App\Controller\ArticleController:list" type="service_closure" id=".service_locator.ui9fwdg"/>
         <argument key="App\Controller\ArticleController:update" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\ArticleController:view" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\ArticleController:view" type="service_closure" id=".service_locator.Mix71J4"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -2646,12 +2655,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.h.WfU3x"/>
+      <argument type="service" id=".service_locator.yjrMzGK"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.h.WfU3x"/>
+      <argument type="service" id=".service_locator.yjrMzGK"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -3051,7 +3060,7 @@
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.h.WfU3x"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.yjrMzGK"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -3059,7 +3068,8 @@
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.cdRy2F7" alias=".service_locator.h.WfU3x"/>
+    <service id=".service_locator.9YAMKf8" alias=".service_locator.Mix71J4"/>
+    <service id=".service_locator.XcidZeB" alias=".service_locator.yjrMzGK"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
     <service id=".service_locator.0ghLsew" alias=".service_locator.mx0UMmY"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -3076,7 +3086,8 @@
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
-    <service id=".service_locator.lQQ63Mn" alias=".service_locator.i9Y0h6B"/>
+    <service id=".service_locator.gIMUxz." alias=".service_locator.ui9fwdg"/>
+    <service id=".service_locator.5CYvWJ8" alias=".service_locator.Mix71J4"/>
     <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
     <service id=".service_locator.DVvIQ.I" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>

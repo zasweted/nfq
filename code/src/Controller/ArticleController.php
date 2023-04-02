@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use DateTime;
+use App\Service\WordCounter;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,12 +23,11 @@ class ArticleController extends AbstractController
 
 
     #[Route('/', name: 'home', methods:'GET')]
-    public function list(ArticleRepository $articleRepository): Response
+    public function list(ArticleRepository $articleRepository, WordCounter $counter): Response
     {
-         $art = $articleRepository->findAll();
-         dump($art);
-
-         usort($art, function($a, $b) {
+        $counter = new WordCounter();
+         $articles = $articleRepository->findAll();
+         usort($articles, function($a, $b) {
             if ($a->getUpdatedAt() > $b->getUpdatedAt()) {
                 return -1;
             } elseif ($a->getUpdatedAt() < $b->getUpdatedAt()) {
@@ -38,18 +38,21 @@ class ArticleController extends AbstractController
         }); 
 
         return $this->render('pages/index.html.twig', [
-            'articles' => $art
+            'articles' => $articles,
+            'counter' => $counter
         ]);
     }
 
     #[Route('view/article/{id}', name: 'article_view', methods:'GET')]
-    public function view(ManagerRegistry $doctrine, int $id): Response
+    public function view(ManagerRegistry $doctrine, WordCounter $counter, int $id): Response
     {
+        $counter = new WordCounter();
         $entityManager = $doctrine->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
 
         return $this->render('pages/view.html.twig', [
             'article' => $article,
+            'counter' => $counter
         ]);
     }
     #[Route('edit/article/{id}', name: 'article_edit', methods:'GET')]
@@ -59,7 +62,7 @@ class ArticleController extends AbstractController
         $article = $entityManager->getRepository(Article::class)->find($id);
 
         return $this->render('pages/edit.html.twig', [
-            'article' => $article,
+            'article' => $article
         ]);
     }
     #[Route('/article/{id}', name: 'article_update', methods:'POST')]

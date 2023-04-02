@@ -71,8 +71,11 @@ class __TwigTemplate_202434ae7b692e88afdb2387e5d22433 extends Template
         echo "\" class=\"btn btn-sm btn-outline-secondary\">Edit</a>
             </div>
 
-            <small class=\"text-muted\">
-                X mins
+            <small class=\"text-muted\">  
+                ";
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["counter"]) || array_key_exists("counter", $context) ? $context["counter"] : (function () { throw new RuntimeError('Variable "counter" does not exist.', 19, $this->source); })()), "wordsPerMinuteCalculator", [0 => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 19, $this->source); })()), "text", [], "any", false, false, false, 19)], "method", false, false, false, 19), "html", null, true);
+        echo " minutes.
             </small>
         </div>
     </div>
@@ -95,7 +98,7 @@ class __TwigTemplate_202434ae7b692e88afdb2387e5d22433 extends Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 15,  66 => 14,  57 => 9,  55 => 8,  49 => 5,  44 => 3,  40 => 1,);
+        return array (  77 => 19,  70 => 15,  66 => 14,  57 => 9,  55 => 8,  49 => 5,  44 => 3,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -117,8 +120,8 @@ class __TwigTemplate_202434ae7b692e88afdb2387e5d22433 extends Template
                 <a href=\"{{ path('article_edit', {id: article.id}) }}\" class=\"btn btn-sm btn-outline-secondary\">Edit</a>
             </div>
 
-            <small class=\"text-muted\">
-                X mins
+            <small class=\"text-muted\">  
+                {{ counter.wordsPerMinuteCalculator(article.text) }} minutes.
             </small>
         </div>
     </div>
