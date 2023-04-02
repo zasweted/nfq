@@ -56,73 +56,118 @@ class __TwigTemplate_55284c7ccf541db2503409beda63125e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "edit"));
 
         // line 4
-        echo "    <section class=\"py-5 text-center container\">
-        <div class=\"row py-lg-5\">
-            <div class=\"col-lg-6 col-md-8 mx-auto\">
-                <h1 class=\"fw-light\">Edit Page</h1>
-                <h2 class=\"fw-light\">for</h2>
-                <h2 class=\"fw-light\">";
+        echo "<section class=\"py-5 text-center container\">
+    <div class=\"row py-lg-5\">
+        <div class=\"col-lg-6 col-md-8 mx-auto\">
+            <h1 class=\"fw-light\">Edit Page</h1>
+            <h2 class=\"fw-light\">for</h2>
+            <h2 class=\"fw-light\">";
         // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 9, $this->source); })()), "title", [], "any", false, false, false, 9), "html", null, true);
         echo "</h2>
-            </div>
         </div>
-    </section>
-    <section class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-lg-6 col-md-6 col-sm-12 mb-4\">
-                <div class=\"card shadow-sm\">
-                    <img src=\"";
+    </div>
+</section>
+<section class=\"container\">
+    <div class=\"row\">
+        <div class=\"col-lg-6 col-md-6 col-sm-12 mb-4\">
+            <div class=\"card shadow-sm\">
+                <img src=\"";
         // line 17
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 17, $this->source); })()), "image", [], "any", false, false, false, 17), "html", null, true);
         echo "\" class=\"card-img-top\">
-                    <div class=\"card-body\">
-                        <h5 class=\"card-title\">";
+                <div class=\"card-body\">
+                    <h5 class=\"card-title\">";
         // line 19
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 19, $this->source); })()), "title", [], "any", false, false, false, 19), "html", null, true);
         echo "</h5>
-                
-                        <p class=\"card-text\">
-                            ";
+
+                    <p class=\"card-text\">
+                        ";
         // line 22
         $context["cutoff"] = 200;
         // line 23
-        echo "                            ";
+        echo "                        ";
         echo twig_escape_filter($this->env, (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23)) > (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })()))) ? ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23), 0, (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })())) . "...")) : (twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23))), "html", null, true);
         echo "
-                        </p>
-                    </div>
+                    </p>
                 </div>
             </div>
-            <div class=\"col-lg-6 col-md-6 col-sm-12 mb-5\">
-                <div class=\"container\" style=\"padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;\">
-            <h2 class=\"text-center mb-2\"> Edit Form</h2>
-                        ";
-        // line 31
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), 'form_start');
-        echo "
-                        ";
+        </div>
+        <div class=\"col-lg-6 col-md-6 col-sm-12 mb-5\">
+            <div class=\"container\"
+                style=\"padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;\">
+                <h2 class=\"text-center mb-2\"> Edit Article</h2>
+                ";
         // line 32
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), 'widget');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), 'form_start');
         echo "
-                        <div class=\"btn-group my-4\">
-                            <button type=\"submit\" class=\"btn btn-warning px-4\">Update</button>
-                            <a href=\"";
-        // line 35
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\" type=\"button\" class=\"btn btn-secondary\">Back</a>
-                        </div>
-                        ";
-        // line 37
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), 'form_end');
+                <div class=\"form-group mb-4\">
+                    ";
+        // line 34
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), "title", [], "any", false, false, false, 34), 'label');
         echo "
                     ";
-        // line 39
-        echo "                </div>
-            </div>
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "title", [], "any", false, false, false, 35), 'widget');
+        echo "
+                    <div class=\"text-danger\">
+                        ";
+        // line 37
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "title", [], "any", false, false, false, 37), 'errors');
+        echo "
+                    </div>
+                </div>
+                <div class=\"form-group mb-4\">
+                    ";
+        // line 41
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), "image", [], "any", false, false, false, 41), 'label');
+        echo "
+                    ";
+        // line 42
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 42, $this->source); })()), "image", [], "any", false, false, false, 42), 'widget');
+        echo "
+                    <div class=\"text-danger\">
+                        ";
+        // line 44
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "image", [], "any", false, false, false, 44), 'errors');
+        echo "
+                    </div>
+                </div>
+                <div class=\"form-group mb-4\">
+                    ";
+        // line 48
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 48, $this->source); })()), "text", [], "any", false, false, false, 48), 'label');
+        echo "
+                    ";
+        // line 49
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 49, $this->source); })()), "text", [], "any", false, false, false, 49), 'widget');
+        echo "
+                    <div class=\"text-danger\">
+                        ";
+        // line 51
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 51, $this->source); })()), "text", [], "any", false, false, false, 51), 'errors');
+        echo "
+                    </div>
+                </div>
+                <div class=\"btn-group my-4\">
+                    <button type=\"submit\" class=\"btn btn-warning px-4\">Update</button>
+                    <a href=\"";
+        // line 56
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" type=\"button\" class=\"btn btn-secondary\">Back</a>
+                </div>
+                ";
+        // line 58
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 58, $this->source); })()), 'form_end');
+        echo "
+                ";
+        // line 60
+        echo "            </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -141,7 +186,7 @@ class __TwigTemplate_55284c7ccf541db2503409beda63125e extends Template
 
     public function getDebugInfo()
     {
-        return array (  121 => 39,  117 => 37,  112 => 35,  106 => 32,  102 => 31,  90 => 23,  88 => 22,  82 => 19,  77 => 17,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  166 => 60,  162 => 58,  157 => 56,  149 => 51,  144 => 49,  140 => 48,  133 => 44,  128 => 42,  124 => 41,  117 => 37,  112 => 35,  108 => 34,  103 => 32,  90 => 23,  88 => 22,  82 => 19,  77 => 17,  66 => 9,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -149,46 +194,67 @@ class __TwigTemplate_55284c7ccf541db2503409beda63125e extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block edit %}
-    <section class=\"py-5 text-center container\">
-        <div class=\"row py-lg-5\">
-            <div class=\"col-lg-6 col-md-8 mx-auto\">
-                <h1 class=\"fw-light\">Edit Page</h1>
-                <h2 class=\"fw-light\">for</h2>
-                <h2 class=\"fw-light\">{{ article.title }}</h2>
+<section class=\"py-5 text-center container\">
+    <div class=\"row py-lg-5\">
+        <div class=\"col-lg-6 col-md-8 mx-auto\">
+            <h1 class=\"fw-light\">Edit Page</h1>
+            <h2 class=\"fw-light\">for</h2>
+            <h2 class=\"fw-light\">{{ article.title }}</h2>
+        </div>
+    </div>
+</section>
+<section class=\"container\">
+    <div class=\"row\">
+        <div class=\"col-lg-6 col-md-6 col-sm-12 mb-4\">
+            <div class=\"card shadow-sm\">
+                <img src=\"{{ article.image }}\" class=\"card-img-top\">
+                <div class=\"card-body\">
+                    <h5 class=\"card-title\">{{ article.title }}</h5>
+
+                    <p class=\"card-text\">
+                        {% set cutoff = 200 %}
+                        {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text }}
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
-    <section class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-lg-6 col-md-6 col-sm-12 mb-4\">
-                <div class=\"card shadow-sm\">
-                    <img src=\"{{ article.image }}\" class=\"card-img-top\">
-                    <div class=\"card-body\">
-                        <h5 class=\"card-title\">{{ article.title }}</h5>
-                
-                        <p class=\"card-text\">
-                            {% set cutoff = 200 %}
-                            {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text  }}
-                        </p>
+        <div class=\"col-lg-6 col-md-6 col-sm-12 mb-5\">
+            <div class=\"container\"
+                style=\"padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;\">
+                <h2 class=\"text-center mb-2\"> Edit Article</h2>
+                {{ form_start(form) }}
+                <div class=\"form-group mb-4\">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title) }}
+                    <div class=\"text-danger\">
+                        {{ form_errors(form.title) }}
                     </div>
                 </div>
-            </div>
-            <div class=\"col-lg-6 col-md-6 col-sm-12 mb-5\">
-                <div class=\"container\" style=\"padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;\">
-            <h2 class=\"text-center mb-2\"> Edit Form</h2>
-                        {{ form_start(form) }}
-                        {{ form_widget(form) }}
-                        <div class=\"btn-group my-4\">
-                            <button type=\"submit\" class=\"btn btn-warning px-4\">Update</button>
-                            <a href=\"{{ path('home') }}\" type=\"button\" class=\"btn btn-secondary\">Back</a>
-                        </div>
-                        {{ form_end(form) }}
-                    {# </form> #}
+                <div class=\"form-group mb-4\">
+                    {{ form_label(form.image) }}
+                    {{ form_widget(form.image) }}
+                    <div class=\"text-danger\">
+                        {{ form_errors(form.image) }}
+                    </div>
                 </div>
+                <div class=\"form-group mb-4\">
+                    {{ form_label(form.text) }}
+                    {{ form_widget(form.text) }}
+                    <div class=\"text-danger\">
+                        {{ form_errors(form.text) }}
+                    </div>
+                </div>
+                <div class=\"btn-group my-4\">
+                    <button type=\"submit\" class=\"btn btn-warning px-4\">Update</button>
+                    <a href=\"{{ path('home') }}\" type=\"button\" class=\"btn btn-secondary\">Back</a>
+                </div>
+                {{ form_end(form) }}
+                {# </form> #}
             </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
 {% endblock %}", "pages/edit.html.twig", "/code/templates/pages/edit.html.twig");
     }
 }

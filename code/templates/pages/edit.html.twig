@@ -1,44 +1,65 @@
 {% extends 'base.html.twig' %}
 
 {% block edit %}
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Edit Page</h1>
-                <h2 class="fw-light">for</h2>
-                <h2 class="fw-light">{{ article.title }}</h2>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Edit Page</h1>
+            <h2 class="fw-light">for</h2>
+            <h2 class="fw-light">{{ article.title }}</h2>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+            <div class="card shadow-sm">
+                <img src="{{ article.image }}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+
+                    <p class="card-text">
+                        {% set cutoff = 200 %}
+                        {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text }}
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
-    <section class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow-sm">
-                    <img src="{{ article.image }}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ article.title }}</h5>
-                
-                        <p class="card-text">
-                            {% set cutoff = 200 %}
-                            {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text  }}
-                        </p>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+            <div class="container"
+                style="padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;">
+                <h2 class="text-center mb-2"> Edit Article</h2>
+                {{ form_start(form) }}
+                <div class="form-group mb-4">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title) }}
+                    <div class="text-danger">
+                        {{ form_errors(form.title) }}
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-                <div class="container" style="padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;">
-            <h2 class="text-center mb-2"> Edit Form</h2>
-                        {{ form_start(form) }}
-                        {{ form_widget(form) }}
-                        <div class="btn-group my-4">
-                            <button type="submit" class="btn btn-warning px-4">Update</button>
-                            <a href="{{ path('home') }}" type="button" class="btn btn-secondary">Back</a>
-                        </div>
-                        {{ form_end(form) }}
-                    {# </form> #}
+                <div class="form-group mb-4">
+                    {{ form_label(form.image) }}
+                    {{ form_widget(form.image) }}
+                    <div class="text-danger">
+                        {{ form_errors(form.image) }}
+                    </div>
                 </div>
+                <div class="form-group mb-4">
+                    {{ form_label(form.text) }}
+                    {{ form_widget(form.text) }}
+                    <div class="text-danger">
+                        {{ form_errors(form.text) }}
+                    </div>
+                </div>
+                <div class="btn-group my-4">
+                    <button type="submit" class="btn btn-warning px-4">Update</button>
+                    <a href="{{ path('home') }}" type="button" class="btn btn-secondary">Back</a>
+                </div>
+                {{ form_end(form) }}
+                {# </form> #}
             </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
 {% endblock %}

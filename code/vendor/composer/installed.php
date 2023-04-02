@@ -895,6 +895,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/validator' => array(
+            'pretty_version' => 'v5.4.22',
+            'version' => '5.4.22.0',
+            'reference' => '7c953a48f436bb180d8f5ae471f2665d7dd245da',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/validator',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/var-dumper' => array(
             'pretty_version' => 'v5.4.21',
             'version' => '5.4.21.0',
