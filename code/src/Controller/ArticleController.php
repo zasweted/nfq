@@ -24,9 +24,21 @@ class ArticleController extends AbstractController
     #[Route('/', name: 'home', methods:'GET')]
     public function list(ArticleRepository $articleRepository): Response
     {
-              
+         $art = $articleRepository->findAll();
+         dump($art);
+
+         usort($art, function($a, $b) {
+            if ($a->getUpdatedAt() > $b->getUpdatedAt()) {
+                return -1;
+            } elseif ($a->getUpdatedAt() < $b->getUpdatedAt()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }); 
+
         return $this->render('pages/index.html.twig', [
-            'articles' => $articleRepository->findAll()
+            'articles' => $art
         ]);
     }
 
