@@ -27,18 +27,18 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="container p-5 border-1 border-dark rounded">
-                    <form>
+                    <form method="POST" action={{ path('article_update', {id: article.id}) }}>
                         <div class="form-group my-4">
                             <label for="title">Edit Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Enter new title">
+                            <input value={{ article.title }} type="text" name="title" class="form-control" placeholder="Enter new title">
                           </div>
                         <div class="form-group my-4">
-                            <label for="image">Edit Image</label>
-                            <input class="form-control" type="file" name="image">
+                            <label for="image">Edit Image URL</label>
+                            <input value={{ article.image }} class="form-control" type="text" name="image" placeholder="Enter new Image URL">
                         </div>
                         <div class="form-group my-4">
                             <label for="text">Edit Text</label>
-                            <textarea class="form-control" name="text" rows="6" placeholder="Enter new text"></textarea>
+                            <textarea class="form-control" name="text" rows="6" placeholder="Enter new text">{{ article.text }}</textarea>
                         </div>
                         <div class="btn-group my-4">
                             <button type="submit" class="btn btn-warning">Edit</button>

@@ -315,8 +315,8 @@ class ComposerStaticInit5206c5446d41fe58b61aa61c1f02b91b
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
-            1 => __DIR__ . '/..' . '/doctrine/common/src',
+            0 => __DIR__ . '/..' . '/doctrine/common/src',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
         'Doctrine\\Bundle\\MigrationsBundle\\' => 
         array (
@@ -341,8 +341,7 @@ class ComposerStaticInit5206c5446d41fe58b61aa61c1f02b91b
     );
 
     public static $classMap = array (
-        'App\\Controller\\IndexController' => __DIR__ . '/../..' . '/src/Controller/IndexController.php',
-        'App\\Controller\\ViewController' => __DIR__ . '/../..' . '/src/Controller/ViewController.php',
+        'App\\Controller\\ArticleController' => __DIR__ . '/../..' . '/src/Controller/ArticleController.php',
         'App\\DataFixtures\\AppFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/AppFixtures.php',
         'App\\Entity\\Article' => __DIR__ . '/../..' . '/src/Entity/Article.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',

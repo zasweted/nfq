@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,7 +25,7 @@ class Article
     private ?string $image = null;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    private $updatedAt;
+    private $updated_at;
 
     /**
      * @return int|null
@@ -82,18 +83,14 @@ class Article
         $this->image = $image;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?DateTime
+{
+    return $this->updated_at;
+}
+
+    public function setUpdatedAt(?DateTime $dateTime): self
     {
-        return $this->$updatedAt;
-    }
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAt()
-    {
-        $this->updatedAt = new DateTime();
+        $this->updated_at = $dateTime;
+        return $this;
     }
 }
