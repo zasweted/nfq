@@ -51,40 +51,6 @@ class ArticleController extends AbstractController
             'counter' => $counter
         ]);
     }
-    // #[Route('edit/article/{id}', name: 'article_edit', methods:'GET')]
-    // public function edit(ManagerRegistry $doctrine, int $id): Response
-    // {
-    //     $entityManager = $doctrine->getManager();
-
-    //     $article = $entityManager->getRepository(Article::class)->find($id);
-        
-    //     $form = $this->createForm(ArticleEditFormType::class, $article);
-        
-    //     return $this->render('pages/edit.html.twig', [
-    //         'article' => $article,
-    //         'form' => $form->createView()
-    //     ]);
-    // }
-    
-    // #[Route('update/article/{id}', name: 'article_update', methods:'POST')]
-    // public function update(Request $request, ManagerRegistry $doctrine, int $id): Response
-    // {
-    //     // dd($request);
-    //     $entityManager = $doctrine->getManager();
-    //     $article = $entityManager->getRepository(Article::class)->find($id);
-    //     $form = $this->createForm(ArticleEditFormType::class, $article);
-    //     $now = new \DateTime();
-    //     $form->handleRequest($request);
-
-    //     if($form->isSubmitted() && $form->isValid()){
-    //         $editedArticle = $form->getData();
-    //         $editedArticle->setUpdatedAt($now);
-    //         $entityManager->persist($editedArticle);
-    //         $entityManager->flush();
-    //         return $this->redirectToRoute('home');
-    //     }
-    // }
-
     #[Route('/edit/article/{id}', name: 'article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, ManagerRegistry $doctrine, int $id): Response
     {
