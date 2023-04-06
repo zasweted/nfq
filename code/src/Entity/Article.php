@@ -48,7 +48,9 @@ class Article
      */
     public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        if (!empty($title)) {
+            $this->title = $title;
+        }
     }
 
     /**
@@ -64,7 +66,9 @@ class Article
      */
     public function setText(?string $text): void
     {
-        $this->text = $text;
+        if (!empty($text)) {
+            $this->text = $text;
+        }
     }
 
     /**
@@ -80,7 +84,9 @@ class Article
      */
     public function setImage(?string $image): void
     {
-        $this->image = $image;
+        if (!empty($image)) {
+            $this->image = $image;
+        }
     }
 
     public function getUpdatedAt(): ?DateTime

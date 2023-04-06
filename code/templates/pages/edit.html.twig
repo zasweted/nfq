@@ -13,21 +13,20 @@
 <section class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-            <div class="card shadow-sm">
+            <div class="card" style="padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;">
                 <img src="{{ article.image }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
 
                     <p class="card-text">
-                        {% set cutoff = 200 %}
+                        {% set cutoff = 350 %}
                         {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text }}
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-            <div class="container"
-                style="padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-5" style="padding: 25px 25px 0 25px; border: 1px solid #00000050; border-radius: 0.5rem; box-shadow: 0 0 10px #00000050;">
+            <div class="container">
                 <h2 class="text-center mb-2"> Edit Article</h2>
                 {{ form_start(form) }}
                 <div class="form-group mb-4">
