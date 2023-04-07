@@ -54,13 +54,11 @@ class ArticleController extends AbstractController
     #[Route('/edit/article/{id}', name: 'article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, ManagerRegistry $doctrine, int $id): Response
     {
-        $now = new \DateTime();
+        $now = new DateTime();
         $entityManager = $doctrine->getManager();
         $article = $entityManager->getRepository(Article::class)->find($id);
     
-        $form = $this->createForm(ArticleEditFormType::class, $article, [
-            'empty_data' => null,
-        ]);
+        $form = $this->createForm(ArticleEditFormType::class, $article);
     
         $form->handleRequest($request);
     
@@ -70,7 +68,6 @@ class ArticleController extends AbstractController
             $entityManager->persist($editedArticle);
             $entityManager->flush();
             return $this->redirectToRoute('home');
-            dump($form->getData());
         }else{
             return $this->render('pages/edit.html.twig', [
                 'form' => $form->createView(),

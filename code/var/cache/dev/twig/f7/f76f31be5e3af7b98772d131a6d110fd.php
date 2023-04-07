@@ -85,7 +85,7 @@ class __TwigTemplate_55284c7ccf541db2503409beda63125e extends Template
                     <p class=\"card-text\">
                         ";
         // line 22
-        $context["cutoff"] = 350;
+        $context["cutoff"] = 80;
         // line 23
         echo "                        ";
         echo twig_escape_filter($this->env, (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23)) > (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })()))) ? ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23), 0, (isset($context["cutoff"]) || array_key_exists("cutoff", $context) ? $context["cutoff"] : (function () { throw new RuntimeError('Variable "cutoff" does not exist.', 23, $this->source); })())) . "...")) : (twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "text", [], "any", false, false, false, 23))), "html", null, true);
@@ -211,7 +211,7 @@ class __TwigTemplate_55284c7ccf541db2503409beda63125e extends Template
                     <h5 class=\"card-title\">{{ article.title }}</h5>
 
                     <p class=\"card-text\">
-                        {% set cutoff = 350 %}
+                        {% set cutoff = 80 %}
                         {{ article.text|length > cutoff ? article.text|slice(0, cutoff) ~ '...' : article.text }}
                     </p>
                 </div>

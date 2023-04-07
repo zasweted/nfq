@@ -57,7 +57,6 @@ class ArticleEditFormType extends AbstractType
                 'label' => 'Edit Text',
                 'required' => false
             ])
-                // ->add('updated_at')
         ;
     }
 
